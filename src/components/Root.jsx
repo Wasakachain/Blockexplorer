@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import './css/Root.css';
 import Header from './Header';
 let push = null;
@@ -13,6 +13,10 @@ export default class Root extends Component {
   constructor(props) {
     super(props);
     push = props.history.push;
+  }
+
+  componentDidMount() {
+    this.props.getBlocksIndex();
   }
 
   render() {

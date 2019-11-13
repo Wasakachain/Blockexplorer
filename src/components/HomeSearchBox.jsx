@@ -5,7 +5,7 @@ export default class HomeSearchBox extends React.Component {
   render() {
     return (
       <div className='home-input-search-box-container flex-center'>
-        <img src={searchIcon} className='search-icon' />
+        <img src={searchIcon} className='search-icon' alt='search'/>
         <input className='search-box-input' type="text"/>
       </div>
     )

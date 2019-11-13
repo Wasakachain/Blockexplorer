@@ -5,13 +5,7 @@ import { createPromise } from 'redux-promise-middleware';
 import reduxImmutableStateInvariant from 'redux-immutable-state-invariant';
 // reducers
 import responsiveReducer from './responsiveReducer';
-// import themeReducer from './themeReducer';
-// import sessionReducer from './sessionReducer';
-// import expedientReducer from './expedientReducer';
-// import notificationReducer from './notificationReducer';
-// import emailReducer from './emailReducer';
-// import contactReducer from './contactReducer';
-// import customFieldReducer from './customFieldReducer';
+import blocksReducer from './blocksReducer';
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__;
 
 function configureStore() {
@@ -33,13 +27,7 @@ function appCombineReducer() {
 	return (
 		combineReducers({
 			responsiveReducer,
-			// themeReducer,
-			// sessionReducer,
-			// expedientReducer,
-			// notificationReducer,
-			// emailReducer,
-			// contactReducer,
-			// customFieldReducer,
+			blocksReducer
 		})
 	)
 }
