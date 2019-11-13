@@ -1,25 +1,24 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+// import { localAjaxRoute, productionAjaxRoute, appEnv } from './configs/env';
+import { activeResponsiveSizeListeners } from './utils/responsive';
+import { BrowserRouter as Router } from 'react-router-dom';
+import AppRouterContainer from './containers/AppRoutesContainer'
+import { Provider } from 'react-redux';
+import initiateStore from './redux/store';
+
+// initializate the store creation
+const store = initiateStore();
+export const dispatch = store.dispatch;
+// activate windows matchMedia
+activeResponsiveSizeListeners(dispatch);
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Provider store={store}>
+      <Router>
+        <AppRouterContainer/>
+      </Router>
+    </Provider>
   );
 }
 

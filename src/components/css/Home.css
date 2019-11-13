@@ -1,0 +1,100 @@
+.home-view-wrapper {
+    width: 100%;
+    margin: 0 auto;
+    justify-content: center;
+    padding-top: 30px;
+}
+
+.twoo-panel-layout {
+    justify-content: space-between;
+}
+
+.home-input-search-box-container {
+    width: 100%;
+    border-radius: 6px;
+    box-shadow: 0px 0px 15px 0px #e3e3e3;
+    justify-content: center;
+    padding: 5px 10px;
+}
+
+.home-input-search-box-container .search-icon {
+    width: 20px;
+    height: auto;
+}
+
+.home-input-search-box-container .search-box-input {
+    padding-left: 10px;
+    width: calc(100% - 20px);
+    color: var(--five-color);
+}
+
+.home-view-wrapper .blocks-container {
+    width: 100%;
+    padding: 30px 0;
+}
+
+.home-view-wrapper .blocks-container .single-block-container {
+    width: 30%;
+    border-radius: 10px;
+    padding: 25px;
+    box-shadow: 2px 2px 5px 1px #b7b6b6;
+}
+
+.home-view-wrapper .blocks-container .single-block-container .icon-container {
+    width: 15%;
+    display: flex;
+}
+
+.home-view-wrapper .blocks-container .single-block-container .icon-container img {
+    display: block;
+    width: 100%;
+}
+
+.home-view-wrapper .blocks-container .single-block-container .info-container {
+    width: 75%;
+}
+
+.home-view-wrapper .blocks-container .single-block-container .info-container .label,
+.home-view-wrapper .blocks-container .single-block-container .info-container .value {
+    color: var(--third-color);
+}
+
+.home-view-wrapper .blocks-container .single-block-container .block-info.right .label,
+.home-view-wrapper .blocks-container .single-block-container .block-info.right .value {
+    text-align: right;
+}
+
+.home-view-wrapper .blocks-container .single-block-container .info-container .value {
+    font-family: Yantramanav-light;
+}
+
+@media (max-width: 1200px) {
+    .home-view-wrapper {
+        padding: 10px 25px;
+    }
+}
+
+@media (max-width: 1000px) {
+    .home-view-wrapper .blocks-container {
+        align-items: stretch;
+    }
+    .home-view-wrapper .blocks-container .single-block-container .info-container {
+        flex-wrap: wrap;
+    }
+    .block-info {
+        width: 100%;
+    }
+}
+
+@media (max-width: 900px) {
+    .home-view-wrapper .blocks-container .single-block-container {
+        width: 49%;
+        margin-bottom: 15px;
+    }
+}
+
+@media (max-width: 600px) {
+    .home-view-wrapper .blocks-container .single-block-container {
+        width: 100%;
+    }
+}
