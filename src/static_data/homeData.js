@@ -6,16 +6,30 @@ export const blocksTitles = [
   {
     title: 'Latest Block',
     secundaryTitle: 'Transactions',
-    icon: blockIcon
+    reducer: 'blocksReducer',
+    reducerKey: 'lastBlock',
+    method: 'getLastBlock',
+    keyToShow: 'index',
+    secundaryKeyToShow: 'transactionsCount',
+    label: 'Block N°',
+    icon: blockIcon,
+    link: '/block/',
   },
   {
     title: 'Latest Transaction',
-    secundaryTitle: null,
-    icon: transactionIcon
+    reducer: 'transactionsReducer',
+    reducerKey: 'lastTransaction',
+    method: 'getLastTransaction',
+    keyToShow: 'transactionDataHash',
+    label: 'Hash',
+    icon: transactionIcon,
+    link: '/transaction/'
   },
   {
     title: 'Difficulty',
-    secundaryTitle: 'Hash Rate',
+    reducer: 'blocksReducer',
+    reducerKey: 'lastBlock',
+    keyToShow: 'difficulty',
     icon: miningIcon
   }
 ]

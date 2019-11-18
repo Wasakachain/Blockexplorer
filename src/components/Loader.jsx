@@ -1,6 +1,5 @@
 
 import React from 'react';
-// import { ReactComponent as LogoOemia } from '../assets/img/logos/oemia.svg'
 import './css/Loader.css';
 
 class Loader extends React.Component {

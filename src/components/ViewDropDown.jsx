@@ -2,7 +2,6 @@ import React from 'react';
 import { ReactComponent as Arrow } from '../assets/img/icons/arrow-down.svg';
 import { viewDropdownElements } from '../static_data/headerData';
 import './css/ViewDropDown.css';
-import { tsObjectKeyword } from '@babel/types';
 
 export default class ViewDropDown extends React.Component {
   constructor(props) {
@@ -31,7 +30,7 @@ export default class ViewDropDown extends React.Component {
     const { location: { pathname } } = this.props;
     let elementsToRender = Object.keys(viewDropdownElements).filter((routeName) => routeName !== pathname);
     return (
-      <div className='list-container'>
+      <div className='list-container third-background'>
         {
           elementsToRender.map((itemListElement, index) => {
             return (
@@ -57,7 +56,7 @@ export default class ViewDropDown extends React.Component {
           <p className='current-site-label'>
             {
               Object.keys(viewDropdownElements).indexOf(this.props.location.pathname) !== -1 ?
-                viewDropdownElements[this.props.location.pathname].label : viewDropdownElements["/"]
+                viewDropdownElements[this.props.location.pathname].label : viewDropdownElements["/"].label
             }
           </p>
           <Arrow className={`dropdown-arrow ${showList ? 'open' : 'close'}`} />

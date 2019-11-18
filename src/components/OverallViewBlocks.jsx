@@ -1,6 +1,6 @@
 import React from 'react';
 import { blocksTitles } from '../static_data/homeData';
-import ViewBlock from './ViewBlock';
+import ViewBlock from '../containers/ViewBlockContainer';
 
 export default class OverallViewBlocks extends React.Component {
   render() {

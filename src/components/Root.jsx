@@ -17,6 +17,7 @@ export default class Root extends Component {
 
   componentDidMount() {
     this.props.getBlocksIndex();
+    this.props.getTransactionsIndex();
   }
 
   render() {
