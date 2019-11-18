@@ -1,0 +1,65 @@
+.transaction-view-wrapper {
+    width: 100%;
+    margin: 0 auto;
+    justify-content: center;
+    padding-top: 30px;
+}
+
+.transaction-info-panel-container {
+    padding: 20px 20px 10px 20px;
+    border-radius: 10px;
+    box-shadow: 0px 2px 7px 1px #cecece;
+}
+
+.transaction-title {
+    font-family: Yantramanav-Light;
+    font-size: 1.5em;
+    padding: 15px 0 30px 0;
+}
+
+.error-message-container {
+    padding: 20px 15px;
+    font-size: 1.3em;
+}
+
+.error-message-container p,
+.transaction-property-container .label {
+    font-family: Yantramanav-Light;
+}
+
+.transaction-property-container {
+    padding: 10px 5px;
+    border-bottom: 3px solid var(--four-color);
+}
+
+.transaction-property-container .label {
+    width: 15%;
+}
+
+.transaction-property-container .property-value {
+    width: 75%;
+    word-break: break-all;
+}
+
+.link {
+    padding-top: 30px;
+}
+
+@media (max-width: 1200px) {
+    .transaction-view-wrapper {
+        padding: 10px 25px;
+    }
+}
+
+@media (max-width: 600px) {
+    .transaction-view-wrapper {
+        padding-bottom: 10vh;
+    }
+    .transaction-property-container .label {
+        width: 100%;
+        padding-bottom: 5px;
+    }
+    .transaction-property-container .property-value {
+        width: 100%;
+    }
+}
