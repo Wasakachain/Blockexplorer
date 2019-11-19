@@ -3,8 +3,9 @@ import Ajax from '../utils/Ajax';
 export const NEW_TRANSACTION = 'NEW_TRANSACTION';
 export const CLEAN_MESSAGE = 'CLEAN_MESSAGE';
 export const GET_CONFIRMED_TRANSACTIONS = 'GET_CONFIRMED_TRANSACTIONS';
-export const GET_TRANSACTIONS_PAGE = 'GET_LAST_TRANSACTION';
-export const GET_LAST_TRANSACTION = 'GET_TRANSACTIONS_PAGE';
+export const GET_CONFIRMED_TRANSACTIONS_PAGE = 'GET_CONFIRMED_TRANSACTIONS_PAGE';
+export const GET_PENDING_TRANSACTIONS_PAGE = 'GET_PENDING_TRANSACTIONS_PAGE';
+export const GET_LAST_TRANSACTION = 'GET_LAST_TRANSACTION';
 
 // actions creators
 export const getTransactionsIndex = () => {
@@ -46,13 +47,13 @@ export const getTransactionByHash = (hash) => {
   }
 }
 
-export const getTransactionsPage = (pageNumber) => {
+export const getTransactionsPage = (status, current_page = 1, paginate = 10) => {
   return {
-    type: GET_TRANSACTIONS_PAGE,
-    payload: new Ajax('transactions', {
+    type: status === 'confirmed' ? GET_CONFIRMED_TRANSACTIONS_PAGE : GET_PENDING_TRANSACTIONS_PAGE,
+    payload: new Ajax(`transactions/${status}`, {
       params: {
-        paginate: 21,
-        current_page: pageNumber
+        paginate,
+        current_page
       }
     }).result()
   }

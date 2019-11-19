@@ -1,9 +1,10 @@
-import { lazy } from 'react';
+import React, { lazy } from 'react';
 const Home = lazy(() => import('../components/Home'));
 const BlockView = lazy(() => import('../containers/BlockViewContainer'));
 const TransactionView = lazy(() => import('../containers/TransactionViewContainer'));
 const BlockTransactionsView = lazy(() => import('../containers/BlockTransactionsViewContainer'));
-const AddressView = lazy(() => import('../containers/AddressContainerView'));
+const AddressView = lazy(() => import('../containers/AddressViewContainer'));
+const TransactionsIndexView = lazy(() => import('../containers/TransactionsIndexViewContainer'));
 
 export const routesList = [
   {
@@ -13,10 +14,16 @@ export const routesList = [
     component: Home
   },
   {
-    path: '/transactions',
+    path: '/confirmed-transactions',
     exact: true,
-    key: 'home',
-    component: Home
+    key: 'confirmed-transactions',
+    render: () => <TransactionsIndexView confirmedTransactions />
+  },
+  {
+    path: '/pending-transactions',
+    exact: true,
+    key: 'pending-transactions',
+    render: () => <TransactionsIndexView pendingdTransactions />
   },
   {
     path: '/transaction/:hash',

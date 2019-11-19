@@ -2,8 +2,8 @@ import moment from 'moment';
 // change the documuent title element
 export function changeDocumentTitle(title, isHome = false) {
     if (isHome) {
-        if (document.title !== `:.: ${title} :.: WasakaScan`) {
-            document.title = `:.: ${title} :.: WasakaScan`;
+        if (document.title !== `:.:. ${title} .:.:`) {
+            document.title = `:.:. ${title} .:.:`;
         }
     }
     else if (document.title !== `WasakaScan ~ ${title}`) {

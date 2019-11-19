@@ -12,11 +12,12 @@ export default class TransactionsList extends React.Component {
       this.transactionsList = props.data.transactions;
     else
       this.transactionsList = props.data;
+    this.count = Array.isArray(this.transactionsList) ? this.transactionsList.length : Object.keys(this.transactionsList).length;
   }
   render() {
     return (
       <div className='transactions-list-wrapper full-width flex wrap'>
-        <p className='transactions-count full-width five-color'>{`A total of ${this.transactionsList.length} transactions found`}</p>
+        <p className='transactions-count full-width five-color'>{`A total of ${this.count} transactions found`}</p>
         <div className='transactions-table-container full-width flex wrap'>
           <div className='table-header flex-center full-width'>
             {

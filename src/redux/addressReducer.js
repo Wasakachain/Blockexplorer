@@ -40,7 +40,7 @@ function addressesReducer(state = initialState, action) {
         loadingBalance: false,
         balances: {
           ...state.balances,
-          [address]: { confirmedBalance, pendingBalance, safeBalance }
+          [`0x${address}`]: { confirmedBalance, pendingBalance, safeBalance }
         }
       }
     case ADDRESS_TRANSACTIONS + actions_suffix.START:
