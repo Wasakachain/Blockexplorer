@@ -7,6 +7,7 @@ import reduxImmutableStateInvariant from 'redux-immutable-state-invariant';
 import responsiveReducer from './responsiveReducer';
 import blocksReducer from './blocksReducer';
 import transactionsReducer from './transactionsReducer';
+import addressesReducer from './addressReducer';
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__;
 
 function configureStore() {
@@ -29,7 +30,8 @@ function appCombineReducer() {
 		combineReducers({
 			responsiveReducer,
 			blocksReducer,
-			transactionsReducer
+			transactionsReducer,
+			addressesReducer
 		})
 	)
 }

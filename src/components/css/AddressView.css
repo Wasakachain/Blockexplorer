@@ -1,0 +1,68 @@
+.address-view-wrapper {
+    width: 100%;
+    margin: 0 auto;
+    justify-content: center;
+    padding-top: 30px;
+}
+
+.address-view-wrapper .address-title {
+    font-family: Yantramanav-Light;
+    font-size: 1.5em;
+    padding-top: 15px;
+    padding-bottom: 5px;
+}
+
+.address-view-wrapper .address {
+    padding-bottom: 30px;
+    word-break: break-all;
+}
+
+.show-transactions {
+    padding: 15px 0;
+    cursor: pointer;
+}
+
+.address-info-panel-container.transactions-panel {
+    margin-top: 60px;
+}
+
+.address-info-panel-container {
+    padding: 20px 20px 10px 20px;
+    border-radius: 10px;
+    box-shadow: 0px 2px 7px 1px #cecece;
+}
+
+.error-message-container {
+    padding: 20px 15px;
+    font-size: 1.3em;
+}
+
+.address-property-container {
+    padding: 5px 0;
+}
+
+.address-info-container .title {
+    padding-bottom: 10px;
+}
+
+.error-message-container p {
+    font-family: Yantramanav-Light;
+    word-break: break-all;
+}
+
+@media (max-width: 1200px) {
+    .address-view-wrapper {
+        padding: 10px 25px;
+    }
+}
+
+@media (max-width: 600px) {
+    .address-view-wrapper {
+        padding-bottom: 10vh;
+    }
+    .address-property-container .property-value {
+        width: 100%;
+        text-align: right;
+        padding-top: 5px;
+    }
+}
