@@ -6,7 +6,7 @@ export default connect(
     let combinedTransctions = {
       ...state.transactionsReducer.confirmedTransactionsList,
       ...state.transactionsReducer.pendingTransactionsList,
-    }
+    };
     return {
       data: combinedTransctions[ownProps.hash],
     }

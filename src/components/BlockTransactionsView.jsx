@@ -23,7 +23,7 @@ export default class BlockTransactionsView extends React.Component {
     return (
       <div className='block-view-wrapper max-width full-width flex wrap'>
         <h1 className='main-block-title full-width main-color'>Transactions</h1>
-        <h1 className='secundary-title full-width five-color'>{blockIndex != 0 ? `For Block #${blockIndex}` : 'For Genesis Block'}</h1>
+        <h1 className='secundary-title full-width five-color'>{parseInt(blockIndex) !== 0 ? `For Block #${blockIndex}` : 'For Genesis Block'}</h1>
         {
           loading ? <Loader /> : (
             <div className='block-info-panel-container full-width'>

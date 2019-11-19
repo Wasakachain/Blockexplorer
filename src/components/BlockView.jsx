@@ -25,7 +25,7 @@ export default class BlockView extends React.Component {
     const { match: { params: { blockIndex } }, loading, message, blocks } = this.props;
     return (
       <div className='block-view-wrapper max-width full-width flex wrap'>
-        <h1 className='block-title full-width five-color'>{blockIndex != 0 ? `Block #${blockIndex}` : 'Genesis Block'}</h1>
+        <h1 className='block-title full-width five-color'>{parseInt(blockIndex) !== 0 ? `Block #${blockIndex}` : 'Genesis Block'}</h1>
         {
           loading ? <Loader /> : (
             <div className='block-info-panel-container full-width'>

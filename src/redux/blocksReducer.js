@@ -56,7 +56,6 @@ function blocksReducer(state = initialState, action) {
         }
       }
     case NEW_BLOCK + actions_suffix.START:
-      console.log('start');
       return {
         ...state,
         loading: true,

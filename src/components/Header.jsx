@@ -9,8 +9,10 @@ export default class Loader extends React.Component {
     return (
       <header className='header-wrapper flex-center'>
         <nav className='header-content max-width flex-between'>
-          <div className='logo-container'>
-            <img src={Logo} alt='wasakascan-logo'/>
+          <div className='logo-container flex'>
+            <Link to='/' className='logo-link'>
+              <img src={Logo} alt='wasakascan-logo' />
+            </Link>
           </div>
           <div className='menu-options-container flex-between'>
             <Link to='/' className='home-link'>

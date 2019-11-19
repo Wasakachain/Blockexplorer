@@ -70,6 +70,7 @@
     
     .home-view-wrapper .twoo-panel-layout {
         width: 100%;
+        align-items: flex-start;
     }
     
     .home-view-wrapper .twoo-panel-layout .home-resume-panel-container {
@@ -125,6 +126,11 @@
     .home-resume-panel-container .list-container .list .block-info-container,
     .home-resume-panel-container .list-container .list .transaction-info-container {
         width: 100%;
+    }
+    
+    .home-resume-panel-container .list-container .list .block-info-container,
+    .home-resume-panel-container .list-container .list .transaction-info-container {
+        padding-bottom: 10px;
     }
     
     .home-resume-panel-container .list-container .list .block-info-container .block-image,

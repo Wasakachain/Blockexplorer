@@ -19,7 +19,7 @@ export default class PanelSearchInput extends React.Component {
     this.handleEnter = this.handleEnter.bind(this);
   }
 
-  getInputValue({ target: { value: value } }) {
+  getInputValue({ target: { value } }) {
     this.inputVal = value;
     if (this.state.error) {
       this.setState({ error: false, message: null });
