@@ -48,6 +48,7 @@
 .transaction-property-container .property-value .transaction-status-image {
     align-self: center;
     display: block;
+    animation: pending-tx-clock 1s ease-in-out infinite;
 }
 
 .link {
@@ -70,5 +71,14 @@
     }
     .transaction-property-container .property-value {
         width: 100%;
+    }
+}
+
+@keyframes pending-tx-clock {
+    0% {
+        transform: rotateZ(0deg);
+    }
+    100% {
+        transform: rotateZ(359deg);
     }
 }
