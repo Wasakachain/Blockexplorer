@@ -15,11 +15,6 @@ export default class Root extends Component {
     push = props.history.push;
   }
 
-  componentDidMount() {
-    this.props.getBlocksIndex();
-    this.props.getTransactionsIndex();
-  }
-
   render() {
     const { children } = this.props;
     return (

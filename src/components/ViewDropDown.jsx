@@ -1,5 +1,5 @@
 import React from 'react';
-import { ReactComponent as Arrow } from '../assets/img/icons/arrow-down.svg';
+import { ReactComponent as Arrow } from '../assets/icons/arrow-down.svg';
 import { viewDropdownElements } from '../static_data/headerData';
 import './css/ViewDropDown.css';
 
@@ -17,7 +17,7 @@ export default class ViewDropDown extends React.Component {
     if (this.props.location.pathname !== location) {
       this.props.history.push(location);
     }
-    this.setState({showList: false});
+    this.setState({ showList: false });
   }
 
   handleList() {
