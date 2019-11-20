@@ -30,10 +30,10 @@ export default class TransactionView extends React.Component {
       <div className='transaction-view-wrapper max-width full-width flex wrap'>
         <h1 className='transaction-title full-width five-color'>Transaction Details</h1>
         {
-          loading || !transactions[this.parsedHash] ? <Loader /> : (
+          loading ? <Loader /> : (
             <div className='transaction-info-panel-container full-width'>
               {
-                message ? (
+                message || !transactions[this.parsedHash] ? (
                   <div className='error-message-container'>
                     <p className='full-width five-color'>{message}</p>
                   </div>

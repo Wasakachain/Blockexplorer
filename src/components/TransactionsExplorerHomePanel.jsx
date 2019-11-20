@@ -81,7 +81,7 @@ export default class TransactionsExplorerHomePanel extends React.Component {
               onClick={this.changeTab(1)}
             >Pending transactions</p>
           </div>
-          <Link className='link five-color' to={`/${index === 1 ? 'pending' : 'confirmed'}-transactions`}>View all</Link>
+          <Link className='link five-color' to={`/${index === 1 ? 'pending' : 'confirmed'}-transactions/1`}>View all</Link>
         </div>
         <div className='search-container flex'>
           <PanelSearchInput type='transaction' />

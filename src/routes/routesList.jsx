@@ -1,5 +1,5 @@
 import React, { lazy } from 'react';
-const Home = lazy(() => import('../components/Home'));
+const Home = lazy(() => import('../containers/HomeContainer'));
 const BlockView = lazy(() => import('../containers/BlockViewContainer'));
 const TransactionView = lazy(() => import('../containers/TransactionViewContainer'));
 const BlockTransactionsView = lazy(() => import('../containers/BlockTransactionsViewContainer'));
@@ -14,13 +14,13 @@ export const routesList = [
     component: Home
   },
   {
-    path: '/confirmed-transactions',
+    path: ['/confirmed-transactions', '/confirmed-transactions/:page'],
     exact: true,
     key: 'confirmed-transactions',
     render: () => <TransactionsIndexView confirmedTransactions />
   },
   {
-    path: '/pending-transactions',
+    path: ['/pending-transactions', '/pending-transactions/:page'],
     exact: true,
     key: 'pending-transactions',
     render: () => <TransactionsIndexView pendingdTransactions />

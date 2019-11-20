@@ -12,11 +12,11 @@ export const viewDropdownElements = {
   '/pending-transactions': {
     label: 'PENDING TRANSACTIONS',
     list: 'View Pending Transactions',
-    to: '/pending-transactions'
+    to: '/pending-transactions/1'
   },
   '/confirmed-transactions': {
     label: 'CONFIRMED TRANSACTIONS',
     list: 'View Confirmed Transactions',
-    to: '/confirmed-transactions'
+    to: '/confirmed-transactions/1'
   }
 };
