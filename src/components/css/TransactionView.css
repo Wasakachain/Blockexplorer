@@ -41,6 +41,15 @@
     word-break: break-all;
 }
 
+.transaction-property-container .property-value .transaction-status {
+    padding-left: 10px;
+}
+
+.transaction-property-container .property-value .transaction-status-image {
+    align-self: center;
+    display: block;
+}
+
 .link {
     padding-top: 30px;
 }

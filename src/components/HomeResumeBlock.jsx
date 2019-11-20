@@ -2,7 +2,7 @@ import React from 'react';
 import Loader from './Loader';
 import { Link } from 'react-router-dom';
 
-export default class ViewBlock extends React.Component {
+export default class HomeResumeBlock extends React.Component {
   requestInfo() {
     const { method, objectIndentificator, data } = this.props;
     if (method && objectIndentificator && !Object.keys(data).length > 0) {

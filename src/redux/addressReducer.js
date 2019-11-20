@@ -4,6 +4,7 @@ import {
   ADDRESS_TRANSACTIONS
 } from './addressActions';
 import { actions_suffix } from './store';
+import { parseHash0x } from '../utils/functions';
 
 const initialState = {
   balances: {},
@@ -38,9 +39,10 @@ function addressesReducer(state = initialState, action) {
       return {
         ...state,
         loadingBalance: false,
+        balanceMessage: null,
         balances: {
           ...state.balances,
-          [`0x${address}`]: { confirmedBalance, pendingBalance, safeBalance }
+          [parseHash0x(address)]: { confirmedBalance, pendingBalance, safeBalance }
         }
       }
     case ADDRESS_TRANSACTIONS + actions_suffix.START:
@@ -62,7 +64,7 @@ function addressesReducer(state = initialState, action) {
         loadingTransactions: false,
         transactions: {
           ...state.transactions,
-          [hash]: transactions
+          [parseHash0x(hash)]: transactions
         }
       }
     case CLEAN_MESSAGES:

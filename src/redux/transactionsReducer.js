@@ -1,14 +1,15 @@
 import {
-  GET_CONFIRMED_TRANSACTIONS,
+  GET_TRANSACTIONS_INDEX,
   // GET_TRANSACTIONS_PAGE,
   GET_LAST_TRANSACTION,
   NEW_TRANSACTION,
   CLEAN_MESSAGE,
 } from './transactionsActions';
 import { actions_suffix } from './store';
+import { parseHash0x } from '../utils/functions';
 
 const initialState = {
-  confirmedtransactionslist: {},
+  confirmedTransactionsList: {},
   pendingTransactionsList: {},
   confirmedPagination: {},
   pendingPagination: {},
@@ -19,24 +20,20 @@ const initialState = {
 
 function transactionsReducer(state = initialState, action) {
   switch (action.type) {
-    case GET_CONFIRMED_TRANSACTIONS + actions_suffix.START:
+    case GET_TRANSACTIONS_INDEX + actions_suffix.START:
       return {
         ...state,
         loading: true
       }
-    case GET_CONFIRMED_TRANSACTIONS + actions_suffix.SUCCESS:
-      let lastDataHash = Object.keys(action.payload.transactions)[Object.keys(action.payload.transactions).length - 1];
+    case GET_TRANSACTIONS_INDEX + actions_suffix.SUCCESS:
+      let lastDataHash = parseHash0x(Object.keys(action.payload.confirmed.transactions)[0]);
+      console.log(action.payload.pending.transactions)
       return {
         ...state,
         loading: false,
-        confirmedTransactionsList: action.payload.transactions,
-        confirmedPagination: {
-          current: action.payload.currentPage,
-          next: action.payload.nextPage,
-          last: action.payload.lastPage,
-          total: action.payload.totalBlocks
-        },
-        lastTransactionHash: action.payload.transactions[lastDataHash].transactionDataHash
+        confirmedTransactionsList: action.payload.confirmed.transactions,
+        pendingTransactionsList: action.payload.pending.transactions,
+        lastTransactionHash: lastDataHash
       }
     case GET_LAST_TRANSACTION + actions_suffix.START:
       return {
@@ -53,22 +50,24 @@ function transactionsReducer(state = initialState, action) {
     case NEW_TRANSACTION + actions_suffix.START:
       return {
         ...state,
-        loading: true
+        loading: true,
+        message: null
       }
-    case NEW_TRANSACTION + actions_suffix.START:
+    case NEW_TRANSACTION + actions_suffix.ERROR:
       return {
         ...state,
         loading: false,
         message: action.payload.message
       }
     case NEW_TRANSACTION + actions_suffix.SUCCESS:
+      let listToStore = action.payload.minedInBlockIndex ? 'confirmedTransactionsList' : 'pendingTransactionsList'
       return {
         ...state,
         loading: false,
         message: null,
-        confirmedTransactionsList: {
-          ...state.confirmedTransactionsList,
-          [action.payload.transaction.transactionDataHash]: action.payload.transaction
+        [listToStore]: {
+          ...state[listToStore],
+          [parseHash0x(action.payload.transaction.transactionDataHash)]: action.payload.transaction
         }
       }
     case CLEAN_MESSAGE:

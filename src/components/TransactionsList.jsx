@@ -14,6 +14,18 @@ export default class TransactionsList extends React.Component {
       this.transactionsList = props.data;
     this.count = Array.isArray(this.transactionsList) ? this.transactionsList.length : Object.keys(this.transactionsList).length;
   }
+  getTransactionStatus(minedInBlockIndex, baseUrl) {
+    if (typeof minedInBlockIndex === 'number') {
+      return (
+        <Link className='transaction-property' to={`${baseUrl}${minedInBlockIndex}`}>
+          <p className='overflow-ellipsis'>{minedInBlockIndex}</p>
+        </Link>
+      );
+    }
+    return (
+      <p className='overflow-ellipsis transaction-property five-color'> Pending</p>
+    );
+  }
   render() {
     return (
       <div className='transactions-list-wrapper full-width flex wrap'>
@@ -36,23 +48,26 @@ export default class TransactionsList extends React.Component {
                     <div key={`transaction-${transactionHash}`} className='transaction-element-container full-width flex-between'>
                       {
                         transactionProperties.map(({ property, baseUrl }, index) => {
-                          if (baseUrl) {
+                          if (property !== 'minedInBlockIndex') {
+                            if (baseUrl) {
+                              return (
+                                <Link
+                                  key={`transaction-property-${index}`}
+                                  className={`transaction-property${property === 'transactionDataHash' ? ' main-color' : ''}`}
+                                  to={`${baseUrl}${this.transactionsList[transactionHash][property]}`}
+                                >
+                                  <p className='overflow-ellipsis'>{this.transactionsList[transactionHash][property]}</p>
+                                </Link>
+                              );
+                            }
                             return (
-                              <Link
-                                key={`transaction-property-${index}`}
-                                className={`transaction-property${property === 'transactionDataHash' ? ' main-color' : ''}`}
-                                to={`${baseUrl}${this.transactionsList[transactionHash][property]}`}
-                              >
-                                <p className='overflow-ellipsis'>{this.transactionsList[transactionHash][property]}</p>
-                              </Link>
+                              <p key={`transaction-property-${index}`} className='overflow-ellipsis transaction-property' >
+                                {property === 'value' || property === 'fee' ? parseCoinAmount(this.transactionsList[transactionHash][property]) :
+                                  property === 'dateCreated' ? getDifferenceFromNow(this.transactionsList[transactionHash][property]) : this.transactionsList[transactionHash][property]}
+                              </p>
                             );
                           }
-                          return (
-                            <p key={`transaction-property-${index}`} className='overflow-ellipsis transaction-property' >
-                              {property === 'value' || property === 'fee' ? parseCoinAmount(this.transactionsList[transactionHash][property]) :
-                                property === 'dateCreated' ? getDifferenceFromNow(this.transactionsList[transactionHash][property]) : this.transactionsList[transactionHash][property]}
-                            </p>
-                          );
+                          return this.getTransactionStatus(this.transactionsList[transactionHash][property], baseUrl)
                         })
                       }
                     </div>

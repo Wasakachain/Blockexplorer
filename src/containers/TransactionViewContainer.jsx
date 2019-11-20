@@ -6,8 +6,12 @@ import { getTransactionByHash, cleanReducerMessage } from '../redux/transactions
 export default withRouter(
   connect(
     state => {
+      const transactions = {
+        ...state.transactionsReducer.confirmedTransactionsList,
+        ...state.transactionsReducer.pendingTransactionsList,
+      }
       return {
-        transactions: state.transactionsReducer.confirmedTransactionsList,
+        transactions: transactions,
         loading: state.transactionsReducer.loading,
         message: state.transactionsReducer.message,
       }

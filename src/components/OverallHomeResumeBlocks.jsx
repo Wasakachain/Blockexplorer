@@ -1,14 +1,14 @@
 import React from 'react';
 import { blocksTitles } from '../static_data/homeData';
-import ViewBlock from '../containers/ViewBlockContainer';
+import HomeResumeBlock from '../containers/HomeResumeBlockContainer';
 
-export default class OverallViewBlocks extends React.Component {
+export default class OverallHomeResumeBlocks extends React.Component {
   render() {
     return (
       <div className='blocks-container flex-between wrap'>
         {
           blocksTitles.map((blockIcon, index) => {
-            return <ViewBlock {...blockIcon} key={`view-blocl-${index}`} />
+            return <HomeResumeBlock {...blockIcon} key={`view-blocl-${index}`} />
           })
         }
       </div>

@@ -1,8 +1,8 @@
 import React from 'react';
 import './css/Home.css';
-import {changeDocumentTitle} from '../utils/functions';
+import { changeDocumentTitle } from '../utils/functions';
 import HomeSearchBox from './HomeSearchBox';
-import OverallViewBlocks from './OverallViewBlocks';
+import OverallHomeResumeBlocks from './OverallHomeResumeBlocks';
 import BlockExplorerHomePanel from '../containers/BlockExplorerHomePanelContainer';
 import TransactionsExplorerHomePanel from '../containers/TransactionsExplorerHomePanelContainer';
 
@@ -14,7 +14,7 @@ export default class Loader extends React.Component {
     return (
       <div className='home-view-wrapper max-width flex wrap'>
         <HomeSearchBox />
-        <OverallViewBlocks />
+        <OverallHomeResumeBlocks />
         <div className='twoo-panel-layout flex-between wrap'>
           <BlockExplorerHomePanel />
           <TransactionsExplorerHomePanel />

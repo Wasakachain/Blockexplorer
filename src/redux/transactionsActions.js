@@ -2,7 +2,7 @@ import Ajax from '../utils/Ajax';
 // action types
 export const NEW_TRANSACTION = 'NEW_TRANSACTION';
 export const CLEAN_MESSAGE = 'CLEAN_MESSAGE';
-export const GET_CONFIRMED_TRANSACTIONS = 'GET_CONFIRMED_TRANSACTIONS';
+export const GET_TRANSACTIONS_INDEX = 'GET_TRANSACTIONS_INDEX';
 export const GET_CONFIRMED_TRANSACTIONS_PAGE = 'GET_CONFIRMED_TRANSACTIONS_PAGE';
 export const GET_PENDING_TRANSACTIONS_PAGE = 'GET_PENDING_TRANSACTIONS_PAGE';
 export const GET_LAST_TRANSACTION = 'GET_LAST_TRANSACTION';
@@ -10,9 +10,10 @@ export const GET_LAST_TRANSACTION = 'GET_LAST_TRANSACTION';
 // actions creators
 export const getTransactionsIndex = () => {
   return {
-    type: GET_CONFIRMED_TRANSACTIONS,
-    payload: new Ajax('transactions/confirmed', {
+    type: GET_TRANSACTIONS_INDEX,
+    payload: new Ajax('transactions', {
       params: {
+        responseFormat: true,
         paginate: 21
       }
     }).result()

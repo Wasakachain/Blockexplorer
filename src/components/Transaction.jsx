@@ -2,6 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { fullTransactionProperties } from '../static_data/transactionData';
 import { formatTimeStamp, parseCoinAmount } from '../utils/functions';
+import checkMark from '../assets/icons/success.png';
+import pending from '../assets/icons/pending.png';
 
 export default class Transaction extends React.Component {
   getTransactionPropertyValue(name, value) {
@@ -16,10 +18,13 @@ export default class Transaction extends React.Component {
   }
   getTransactionStatus() {
     const { data } = this.props;
-    if (typeof data.minedInBlockIndex === 'number') {
-      return <p className='property-value main-color'>Success</p>;
-    }
-    return <p className='property-value five-color'>Pending</p>;
+    let success = typeof data.minedInBlockIndex === 'number' ? true : false;
+    return (
+      <span className='property-value full-width flex'>
+        <img src={success ? checkMark : pending} className='transaction-status-image' />
+        <p className={`transaction-status${success ? ' main-color' : ' five-color'}`}>{success ? 'Success' : 'Pending'}</p>
+      </span>
+    )
   }
   render() {
     const { data } = this.props;

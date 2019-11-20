@@ -21,7 +21,7 @@ export default class Root extends Component {
   }
 
   render() {
-    const { children} = this.props;
+    const { children } = this.props;
     return (
       <div className='site-container flex wrap'>
         <Header />

@@ -53,6 +53,10 @@ export function validateAddress(address) {
     return (regex_0x.test(address) && /^([A-Fa-f0-9]{64})$/.test(address.replace(/^0x/, '')));
 }
 
+export function parseHash0x(hash) {
+    return new RegExp("^0x", "i").test(hash) ? hash.replace('0x', '') : hash;
+}
+
 export function formatTimeStamp(timestamp) {
     return moment(timestamp).format('dddd, MMMM Do YYYY, h:mm a')
 }
