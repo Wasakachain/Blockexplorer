@@ -1,9 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { fullTransactionProperties } from '../static_data/transactionData';
-import { formatTimeStamp, parseCoinAmount } from '../utils/functions';
+import { formatTimeStamp, parseCoinAmount, parseHashToShow } from '../utils/functions';
 import checkMark from '../assets/icons/success.png';
 import pending from '../assets/icons/pending.png';
+import error from '../assets/icons/pending.png';
 
 export default class Transaction extends React.Component {
   getTransactionPropertyValue(name, value) {
@@ -14,6 +15,8 @@ export default class Transaction extends React.Component {
     if (typeof value === 'boolean') {
       return value ? 'Yes' : 'No';
     }
+    if (name === 'from' || name === 'to')
+      return parseHashToShow(value);
     return value;
   }
   getTransactionStatus() {

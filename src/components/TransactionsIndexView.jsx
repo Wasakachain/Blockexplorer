@@ -1,24 +1,24 @@
 import React from 'react';
 import './css/TransactionsIndexView.css';
-import { formatTimeStamp, parseCoinAmount, changeDocumentTitle } from '../utils/functions';
+import { changeDocumentTitle } from '../utils/functions';
 import Loader from './Loader';
 import TransactionsList from '../containers/TransactionsListContainer';
 import Pagination from '../containers/PaginationContainer';
-// import { Link } from 'react-router-dom';
-// import { fullTransactionProperties } from '../static_data/transactionData';
 
 export default class TransactionsIndexView extends React.Component {
   componentDidMount() {
-    const { data, pendingdTransactions, getTransactionsPage, match: { params: { page } } } = this.props;
+    const { pendingdTransactions, getTransactionsPage, match: { params: { page } } } = this.props;
     changeDocumentTitle(pendingdTransactions ? 'Pending Transactions' : 'Confirmed Transactions', true);
     getTransactionsPage(pendingdTransactions ? 'pending' : 'confirmed', page ? page : 1);
   }
+
   componentDidUpdate({ match: { params: { page } } }) {
     if (this.props.match.params.page !== page) {
       const { pendingdTransactions, getTransactionsPage } = this.props;
       getTransactionsPage(pendingdTransactions ? 'pending' : 'confirmed', this.props.match.params.page ? this.props.match.params.page : 1);
     }
   }
+
   render() {
     const {
       pendingdTransactions,
@@ -31,7 +31,7 @@ export default class TransactionsIndexView extends React.Component {
         {
           loading ? <Loader /> : (
             Object.keys(data).length ? (
-              <div className='address-info-panel-container transactions-panel full-width'>
+              <div className='transaction-index-view-container full-width'>
                 <TransactionsList
                   reducer='transactionsReducer'
                   reducerKey={pendingdTransactions ? 'pendingTransactionsList' : 'confirmedTransactionsList'}

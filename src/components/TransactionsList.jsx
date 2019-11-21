@@ -1,7 +1,6 @@
 import React from 'react';
-import { tableHeader } from '../static_data/blockData';
-import { transactionProperties } from '../static_data/transactionData';
-import { parseCoinAmount, getDifferenceFromNow } from '../utils/functions';
+import { transactionProperties, tableHeader } from '../static_data/transactionData';
+import { parseCoinAmount, getDifferenceFromNow, parseHashToShow } from '../utils/functions';
 import { Link } from 'react-router-dom';
 import './css/TransactionsList.css';
 
@@ -56,7 +55,9 @@ export default class TransactionsList extends React.Component {
                                   className={`transaction-property${property === 'transactionDataHash' ? ' main-color' : ''}`}
                                   to={`${baseUrl}${this.transactionsList[transactionHash][property]}`}
                                 >
-                                  <p className='overflow-ellipsis'>{this.transactionsList[transactionHash][property]}</p>
+                                  <p className='overflow-ellipsis'>{
+                                    property === 'from' || property === 'to' ? parseHashToShow(this.transactionsList[transactionHash][property]) : this.transactionsList[transactionHash][property]
+                                  }</p>
                                 </Link>
                               );
                             }
