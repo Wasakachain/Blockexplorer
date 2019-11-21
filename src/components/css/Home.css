@@ -10,6 +10,16 @@
         padding-bottom: 10vh;
     }
     
+    .home-input-search-box-container.error-val {
+        border: 1px solid #fd9e9e
+    }
+    
+    .search-panel-error-input-message {
+        padding-top: 5px;
+        text-align: center;
+        font-family: Yantramanav-Light;
+    }
+    
     .home-input-search-box-container {
         width: 100%;
         border-radius: 6px;

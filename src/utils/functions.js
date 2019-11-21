@@ -48,11 +48,21 @@ export function validateBlockDataHash(hash) {
     return (regex_0x.test(hash) && /^([A-Fa-f0-9]{40})$/.test(hash.replace(/^0x/, '')));
 }
 
-export function validateAddress(address) {
-    let regex_0x = new RegExp("^0x", "i");
-    return (regex_0x.test(address) && /^([A-Fa-f0-9]{64})$/.test(address.replace(/^0x/, '')));
+export function validateTransaction(address) {
+    const unprefixedAddress = address.replace(/^0x/, '');
+    if (/^([A-Fa-f0-9]{64})$/.test(unprefixedAddress))
+        return unprefixedAddress;
+    else
+        return false;
 }
 
+export function validateAddress(address) {
+    const unprefixedAddress = address.replace(/^0x/, '');
+    if (/^([A-Fa-f0-9]{40})$/.test(unprefixedAddress))
+        return unprefixedAddress;
+    else
+        return false;
+}
 export function parseHash0x(hash) {
     return new RegExp("^0x", "i").test(hash) ? hash.replace('0x', '') : hash;
 }
