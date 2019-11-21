@@ -6,6 +6,7 @@ const BlockTransactionsView = lazy(() => import('../containers/BlockTransactions
 const AddressView = lazy(() => import('../containers/AddressViewContainer'));
 const TransactionsIndexView = lazy(() => import('../containers/TransactionsIndexViewContainer'));
 const BlocksIndexView = lazy(() => import('../containers/BlocksIndexViewContainer'));
+const NotFound = lazy(() => import('../components/NotFound'));
 
 export const routesList = [
   {
@@ -25,6 +26,12 @@ export const routesList = [
     exact: true,
     key: 'pending-transactions',
     render: () => <TransactionsIndexView pendingdTransactions />
+  },
+  {
+    path: '/not-found',
+    exact: true,
+    key: 'not-found-redirect',
+    component: NotFound
   },
   {
     path: '/transaction/:hash',
@@ -56,4 +63,8 @@ export const routesList = [
     key: 'addressView',
     component: AddressView
   },
+  {
+    key: 'not-found',
+    component: NotFound
+  }
 ];

@@ -28,6 +28,7 @@ export default class ViewDropDown extends React.Component {
 
   renderList() {
     const { location: { pathname } } = this.props;
+    console.log('pathname', pathname)
     let elementsToRender = Object.keys(viewDropdownElements).filter((routeName) => routeName !== pathname);
     return (
       <div className='list-container third-background'>
@@ -49,14 +50,15 @@ export default class ViewDropDown extends React.Component {
   }
 
   render() {
+    const { location: { pathname } } = this.props;
     let { showList } = this.state;
     return (
       <div className='site-dropdown-container'>
         <div className='dropdown-header flex' onClick={this.handleList}>
           <p className='current-site-label'>
             {
-              Object.keys(viewDropdownElements).indexOf(this.props.location.pathname) !== -1 ?
-                viewDropdownElements[this.props.location.pathname].label : viewDropdownElements["/"].label
+              Object.keys(viewDropdownElements).indexOf(pathname) !== -1 ?
+                viewDropdownElements[pathname].label : viewDropdownElements["/"].label
             }
           </p>
           <Arrow className={`dropdown-arrow ${showList ? 'open' : 'close'}`} />

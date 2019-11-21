@@ -13,16 +13,16 @@ export default class TransactionsList extends React.Component {
       this.transactionsList = props.data;
     this.count = Array.isArray(this.transactionsList) ? this.transactionsList.length : Object.keys(this.transactionsList).length;
   }
-  getTransactionStatus(minedInBlockIndex, baseUrl) {
+  getTransactionStatus(minedInBlockIndex, baseUrl, index) {
     if (typeof minedInBlockIndex === 'number') {
       return (
-        <Link className='transaction-property' to={`${baseUrl}${minedInBlockIndex}`}>
+        <Link key={`transaction-property-${index}`} className='transaction-property' to={`${baseUrl}${minedInBlockIndex}`}>
           <p className='overflow-ellipsis'>{minedInBlockIndex}</p>
         </Link>
       );
     }
     return (
-      <p className='overflow-ellipsis transaction-property five-color'> Pending</p>
+      <p key={`transaction-property-${index}`} className='overflow-ellipsis transaction-property five-color'> Pending</p>
     );
   }
   render() {
@@ -68,7 +68,7 @@ export default class TransactionsList extends React.Component {
                               </p>
                             );
                           }
-                          return this.getTransactionStatus(this.transactionsList[transactionHash][property], baseUrl)
+                          return this.getTransactionStatus(this.transactionsList[transactionHash][property], baseUrl, index)
                         })
                       }
                     </div>

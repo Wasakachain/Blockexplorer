@@ -1,0 +1,32 @@
+.not-found-page-container {
+    padding: 100px 0
+}
+
+.main-message {
+    text-align: center;
+    font-family: Yantramanav-Bold;
+    font-size: 3em;
+}
+
+.secundary-message {
+    text-align: center;
+    font-family: Yantramanav-Light;
+    font-size: 2em;
+}
+
+.error404-image {
+    width: 90%;
+    max-width: 250px;
+}
+
+.link {
+    text-align: center;
+    font-family: Yantramanav-Light;
+    font-size: 1.3em;
+}
+
+@media(max-width:600px) {
+    .not-found-page-container {
+        padding: 50px 0 0 0;
+    }
+}
