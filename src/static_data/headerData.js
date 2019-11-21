@@ -1,22 +1,22 @@
 export const viewDropdownElements = {
   '/': {
-    label: 'BLOCKCHAIN',
-    list: 'View BlockChain',
+    label: 'BLOCKCHAIN RESUME',
+    list: 'View Resume',
     to: '/'
   },
   '/blocks': {
     label: 'BLOCKS',
-    list: 'View Blocks',
+    list: 'View BlockChain',
     to: '/blocks'
-  },
-  '/pending-transactions': {
-    label: 'PENDING TRANSACTIONS',
-    list: 'View Pending Transactions',
-    to: '/pending-transactions/1'
   },
   '/confirmed-transactions': {
     label: 'CONFIRMED TRANSACTIONS',
     list: 'View Confirmed Transactions',
     to: '/confirmed-transactions/1'
+  },
+  '/pending-transactions': {
+    label: 'PENDING TRANSACTIONS',
+    list: 'View Pending Transactions',
+    to: '/pending-transactions/1'
   }
 };

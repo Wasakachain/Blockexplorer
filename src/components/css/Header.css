@@ -18,6 +18,7 @@
 .header-wrapper .header-content .logo-container img {
     display: block;
     width: 100%;
+    max-width: none;
     object-fit: contain;
 }
 
