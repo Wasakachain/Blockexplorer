@@ -9,9 +9,6 @@ import TransactionsExplorerHomePanel from '../containers/TransactionsExplorerHom
 export default class Loader extends React.Component {
   componentDidMount() {
     changeDocumentTitle('Explore WasakaChain', true);
-  }
-
-  componentDidMount() {
     this.props.getBlocksIndex();
     this.props.getTransactionsIndex();
   }

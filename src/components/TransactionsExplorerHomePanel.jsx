@@ -2,7 +2,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import PanelSearchInput from './PanelSearchInput';
-import { parseCoinAmount } from '../utils/functions';
+import { parseCoinAmount, parseHashToShow } from '../utils/functions';
 
 export default class TransactionsExplorerHomePanel extends React.Component {
   constructor(props) {
@@ -39,13 +39,13 @@ export default class TransactionsExplorerHomePanel extends React.Component {
                     <span className='from flex'>
                       <p className='label main-color'>From:</p>
                       <Link className='value' to={`address/${transactions[transactionName].from}`}>
-                        <p className='overflow-ellipsis'>{transactions[transactionName].from}</p>
+                        <p className='overflow-ellipsis'>{`${parseHashToShow(transactions[transactionName].from)}`}</p>
                       </Link>
                     </span>
                     <span className='from flex'>
                       <p className='label main-color'>To:</p>
                       <Link className='value' to={`address/${transactions[transactionName].to}`}>
-                        <p className='overflow-ellipsis'>{transactions[transactionName].to}</p>
+                        <p className='overflow-ellipsis'>{`${parseHashToShow(transactions[transactionName].to)}`}</p>
                       </Link>
                     </span>
                   </div>

@@ -57,6 +57,17 @@ export function parseHash0x(hash) {
     return new RegExp("^0x", "i").test(hash) ? hash.replace('0x', '') : hash;
 }
 
+export function parseHashToShow(hash) {
+    let hashToshow = `0x${parseHash0x(hash)}`;
+    if (hashToshow === '0xa56d702089d9b284a5ca6c6c2fa32fbd1660e73a') {
+        return 'WasakaFaucet';
+    }
+    if (new RegExp("^0x0000000000000", "i").test(hashToshow)) {
+        return 'WasakaChain';
+    }
+    return hashToshow;
+}
+
 export function formatTimeStamp(timestamp) {
     return moment(timestamp).format('dddd, MMMM Do YYYY, h:mm a')
 }

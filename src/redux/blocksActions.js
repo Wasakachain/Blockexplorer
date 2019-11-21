@@ -43,7 +43,7 @@ export const getBlocksPage = (pageNumber) => {
     type: GET_BLOCKS_PAGE,
     payload: new Ajax('blocks', {
       params: {
-        paginate: 21,
+        paginate: 15,
         current_page: pageNumber
       }
     }).result()

@@ -5,6 +5,7 @@ const TransactionView = lazy(() => import('../containers/TransactionViewContaine
 const BlockTransactionsView = lazy(() => import('../containers/BlockTransactionsViewContainer'));
 const AddressView = lazy(() => import('../containers/AddressViewContainer'));
 const TransactionsIndexView = lazy(() => import('../containers/TransactionsIndexViewContainer'));
+const BlocksIndexView = lazy(() => import('../containers/BlocksIndexViewContainer'));
 
 export const routesList = [
   {
@@ -32,10 +33,10 @@ export const routesList = [
     component: TransactionView
   },
   {
-    path: '/blocks',
+    path: ['/blocks', '/blocks/:page'],
     exact: true,
     key: 'home',
-    component: Home
+    render: () => <BlocksIndexView />
   },
   {
     path: '/block/transactions/:blockIndex',

@@ -8,12 +8,43 @@ export const blockInfoLabels = {
   'blockHash': 'Block Hash'
 };
 
+export const blocksProperties = [
+  {
+    property: 'index',
+    baseUrl: '/block/'
+  },
+  {
+    property: 'blockDataHash',
+  },
+  {
+    property: 'blockHash',
+  },
+  {
+    property: 'dateCreated',
+  },
+  {
+    property: 'difficulty',
+  },
+  {
+    property: 'minedBy',
+    baseUrl: '/address/'
+  },
+  {
+    property: 'nonce',
+  },
+  {
+    property: 'prevBlockHash',
+  },
+];
+
 export const tableHeader = [
-  'Transaction hash',
-  'Block',
+  'Index',
+  'Block Data Hash',
+  'Block Hash',
   'Age',
-  'From',
-  'To',
-  'Value',
-  'Transaction Fee'
+  'Difficulty',
+  'Mined By',
+  'Nonce',
+  'Previous Block Hash',
+  'Transactions'
 ];

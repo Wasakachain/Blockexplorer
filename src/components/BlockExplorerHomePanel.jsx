@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import PanelSearchInput from './PanelSearchInput';
-import { getTransactionsTotal, getMiningTime } from '../utils/functions';
+import { getTransactionsTotal, getMiningTime, parseHashToShow } from '../utils/functions';
 
 export default class BlockExplorerHomePanel extends React.Component {
   render() {
@@ -29,7 +29,7 @@ export default class BlockExplorerHomePanel extends React.Component {
                     </div>
                     <div className='block-miner'>
                       <Link className='miner overflow-ellipsis' to={`address/${data[blockIndex].minedBy}`}>
-                        <p className='overflow-ellipsis'>{`Mined By: ${data[blockIndex].minedBy}`}</p>
+                        <p className='overflow-ellipsis'>{`Mined By: ${parseHashToShow(data[blockIndex].minedBy)}`}</p>
                       </Link>
                       <Link className='flex' to={`/block/${index}`}>
                         <span className='flex'>

@@ -3,7 +3,7 @@ import './css/AddressView.css';
 import Loader from './Loader';
 import AddressBalances from '../containers/AddressBalancesContainer';
 import TransactionsList from '../containers/TransactionsListContainer';
-import { changeDocumentTitle, parseHash0x } from '../utils/functions';
+import { changeDocumentTitle, parseHash0x, parseHashToShow } from '../utils/functions';
 
 export default class AddressView extends React.Component {
   state = {
@@ -30,13 +30,14 @@ export default class AddressView extends React.Component {
     }
   }
 
-  componentWillUpdate({ balances, transactions, match: { params: { address } } }) {
+  shouldComponentUpdate({ balances, transactions, match: { params: { address } } }) {
     if (this.parsedAddress !== parseHash0x(address)) {
       this.parsedAddress = parseHash0x(address);
       this.addressChanged = true
     }
     this.addressBalance = balances[this.parsedAddress];
     this.addressTransactions = transactions[this.parsedAddress];
+    return true;
   }
 
   componentDidUpdate({ transactions: oldTransactions }, { showTransactions: wasShowingTransactions }) {
@@ -81,7 +82,7 @@ export default class AddressView extends React.Component {
     return (
       <div className='address-view-wrapper max-width full-width flex wrap'>
         <h1 className='address-title full-width main-color'>Address</h1>
-        <h1 className='address full-width five-color'>{`0x${this.parsedAddress}`}</h1>
+        <h1 className='address full-width five-color'>{parseHashToShow(this.parsedAddress)}</h1>
         {
           loadingBalance ? <Loader /> : (
             <div className='address-info-panel-container full-width'>

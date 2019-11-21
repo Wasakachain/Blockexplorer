@@ -1,7 +1,7 @@
 import {
   NEW_BLOCK,
   GET_BLOCKS,
-  // GET_BLOCKS_PAGE,
+  GET_BLOCKS_PAGE,
   GET_LAST_BLOCK,
   CLEAN_MESSAGE,
 } from './blocksActions';
@@ -31,8 +31,8 @@ function blocksReducer(state = initialState, action) {
         ...state,
         loading: false,
         blocksList: {
-          ...state.blocksList,
-          ...newBlocks
+          ...newBlocks,
+          ...state.blocksList
         },
         pagination: {
           current: action.payload.currentPage,
@@ -74,6 +74,23 @@ function blocksReducer(state = initialState, action) {
         blocksList: {
           ...state.blocksList,
           [action.payload.index]: { ...action.payload }
+        }
+      }
+    case GET_BLOCKS_PAGE + actions_suffix.START:
+      return {
+        ...state,
+        loading: true
+      }
+    case GET_BLOCKS_PAGE + actions_suffix.SUCCESS:
+      // console.log(action.payload)
+      return {
+        ...state,
+        loading: false,
+        blocksList: action.payload.blocks,
+        pagination: {
+          current: action.payload.currentPage,
+          last: action.payload.lastPage,
+          next: action.payload.nextPage
         }
       }
     case CLEAN_MESSAGE:

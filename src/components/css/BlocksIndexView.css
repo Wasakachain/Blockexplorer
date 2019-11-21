@@ -1,0 +1,16 @@
+.block-view-wrapper {
+    width: 100%;
+    margin: 0 auto;
+    justify-content: center;
+    padding-top: 30px;
+}
+
+.block-view-wrapper .view-title {
+    font-size: 1.5em;
+}
+
+@media (max-width: 1200px) {
+    .block-view-wrapper {
+        padding: 10px 25px;
+    }
+}

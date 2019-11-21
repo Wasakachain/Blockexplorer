@@ -6,6 +6,11 @@
     opacity: .4;
 }
 
+.pagination-container .button.active,
+.pagination-container .arrow.active {
+    cursor: pointer;
+}
+
 .pagination-container .button,
 .pagination-container .arrow,
 .pagination-container .pages {

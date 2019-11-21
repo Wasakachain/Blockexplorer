@@ -84,3 +84,13 @@ export const fullTransactionProperties = [
     label: 'Is Coin base',
   },
 ];
+
+export const tableHeader = [
+  'Transaction hash',
+  'Block',
+  'Age',
+  'From',
+  'To',
+  'Value',
+  'Transaction Fee'
+];

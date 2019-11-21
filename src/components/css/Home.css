@@ -7,6 +7,7 @@
     
     .twoo-panel-layout {
         justify-content: space-between;
+        padding-bottom: 10vh;
     }
     
     .home-input-search-box-container {
