@@ -48,6 +48,9 @@
 .transaction-property-container .property-value .transaction-status-image {
     align-self: center;
     display: block;
+}
+
+.transaction-status-image .pending-image {
     animation: pending-tx-clock 1s ease-in-out infinite;
 }
 
