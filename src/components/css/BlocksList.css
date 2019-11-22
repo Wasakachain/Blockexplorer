@@ -37,14 +37,12 @@
 
 .block-property.responsive-width {
     width: 100%;
+    text-align: left;
 }
 
 .block-property.desktop-width {
     max-width: calc(95% / 9);
     width: calc(95% / 9);
-}
-
-.block-property {
     text-align: center;
 }
 
@@ -58,7 +56,7 @@
 }
 
 .property-value-column {
-    width: calc(100% - 180px);
+    width: calc(100% - 160px);
 }
 
 .property-label-column,

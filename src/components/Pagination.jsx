@@ -22,10 +22,10 @@ export default class Pagination extends React.Component {
     if (this.current > 1) this.goto(1);
   }
   goNext = () => {
-    if (this.next) this.goto(this.next)
+    if (this.next) this.goto(this.next);
   }
   goBack = () => {
-    if (this.current > 1) this.goto(this.current - 1)
+    if (this.current > 1) this.goto(this.current - 1);
   }
   goLast = () => {
     if (this.current < this.last) this.goto(this.last);

@@ -2,6 +2,7 @@ export const blockInfoLabels = {
   'index': 'Index',
   'difficulty': 'Difficulty',
   'minedBy': 'Mined By',
+  'prevBlockHash': 'Previous Block Hash',
   'blockDataHash': 'Block Data Hash',
   'dateCreated': 'Date Created',
   'nonce': 'Nonce',

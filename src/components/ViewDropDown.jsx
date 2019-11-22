@@ -28,7 +28,6 @@ export default class ViewDropDown extends React.Component {
 
   renderList() {
     const { location: { pathname } } = this.props;
-    console.log('pathname', pathname)
     let elementsToRender = Object.keys(viewDropdownElements).filter((routeName) => routeName !== pathname);
     return (
       <div className='list-container third-background'>
