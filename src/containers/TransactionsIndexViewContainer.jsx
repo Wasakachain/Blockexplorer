@@ -8,7 +8,8 @@ export default withRouter(
     (state, { confirmedTransactions }) => {
       return {
         data: confirmedTransactions ? state.transactionsReducer.confirmedTransactionsList : state.transactionsReducer.pendingTransactionsList,
-        loading: state.transactionsReducer.loading
+        loading: state.transactionsReducer.loading,
+        responsive: state.responsiveReducer.responsive
       }
     }, {
     getTransactionsPage

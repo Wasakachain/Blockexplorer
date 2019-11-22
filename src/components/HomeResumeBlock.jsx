@@ -4,17 +4,17 @@ import { Link } from 'react-router-dom';
 
 export default class HomeResumeBlock extends React.Component {
   requestInfo() {
-    const { method, objectIndentificator, data } = this.props;
-    if (method && objectIndentificator && !Object.keys(data).length > 0) {
-      if (typeof objectIndentificator === 'number') {
-        return this.props[method](objectIndentificator - 1);
-      }
-      return this.props[method](objectIndentificator);
+    const { method, objectIdentificator, data } = this.props;
+    if (method && objectIdentificator && !Object.keys(data).length > 0) {
+      return this.props[method](objectIdentificator);
     }
   }
 
-  componentDidMount() {
-    this.requestInfo();
+  componentDidUpdate() {
+    const { data, loading } = this.props;
+    if (!Object.keys(data).length > 0 && !loading) {
+      // this.requestInfo();
+    }
   }
 
   render() {
@@ -27,7 +27,8 @@ export default class HomeResumeBlock extends React.Component {
       label,
       secundaryKeyToShow,
       link,
-      objectIndentificator
+      objectIdentificator,
+      loading
     } = this.props;
     return (
       <div className='single-block-container main-background flex-between'>
@@ -35,13 +36,13 @@ export default class HomeResumeBlock extends React.Component {
           <img src={icon} alt={title} />
         </div>
         {
-          Object.keys(data).length ? (
+          !loading ? (
             <div className='info-container flex-between'>
               <div className='block-info full-width'>
                 <p className='label'>{title}</p>
                 {
                   link ? (
-                    <Link to={`${link}${objectIndentificator}`} className='value'>
+                    <Link to={`${link}${objectIdentificator}`} className='value'>
                       <p className='overflow-ellipsis'>{label ? `${label}: ${data[keyToShow]}` : `${data[keyToShow]}`}</p>
                     </Link>
                   ) : (

@@ -24,13 +24,49 @@
     padding: 15px 25px 15px 25px;
 }
 
-.transaction-property {
+.transactions-tables-list-container {
+    padding-top: 15px;
+}
+
+.single-transaction-properties-table {
+    align-items: stretch;
+    padding: 5px 12px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+}
+
+.transaction-property.responsive-width {
+    width: 100%;
+    text-align: left;
+}
+
+.transaction-property.desktop-width {
     width: calc(95% / 7);
     max-width: calc(95% / 7);
+}
+
+.transaction-property {
+    text-align: center;
+}
+
+.transaction-property {
     text-align: center;
 }
 
 .transactions-table-container .table-header .header-label {
     text-align: center;
     width: calc(100% / 7);
+}
+
+.property-label-column {
+    width: 150px;
+}
+
+.property-value-column {
+    width: calc(100% - 180px);
+}
+
+.property-label-column,
+.property-value-column {
+    flex-direction: column;
 }

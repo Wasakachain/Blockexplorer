@@ -33,6 +33,11 @@
 }
 
 @media (max-width: 600px) {
+    .pagination-container .pages-and-arrows-container {
+        align-items: flex-end;
+        padding-bottom: 15px;
+        width: 100%;
+    }
     .pagination-container .button.prev {
         order: 4;
     }

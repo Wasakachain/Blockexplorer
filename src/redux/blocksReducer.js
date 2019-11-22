@@ -23,21 +23,14 @@ function blocksReducer(state = initialState, action) {
         loading: true
       }
     case GET_BLOCKS + actions_suffix.SUCCESS:
-      let newBlocks = {};
-      action.payload.blocks.forEach(block => {
-        return newBlocks[block.index] = block;
-      })
       return {
         ...state,
         loading: false,
-        blocksList: {
-          ...newBlocks,
-          ...state.blocksList
-        },
+        blocksList: [...action.payload.blocks],
         pagination: {
           current: action.payload.currentPage,
-          next: action.payload.nextPage,
           last: action.payload.lastPage,
+          next: action.payload.nextPage,
           total: action.payload.totalBlocks
         }
       }
@@ -45,6 +38,11 @@ function blocksReducer(state = initialState, action) {
       return {
         ...state,
         loading: true
+      }
+    case GET_LAST_BLOCK + actions_suffix.ERROR:
+      return {
+        ...state,
+        loading: false
       }
     case GET_LAST_BLOCK + actions_suffix.SUCCESS:
       return {
@@ -76,13 +74,7 @@ function blocksReducer(state = initialState, action) {
           [action.payload.index]: { ...action.payload }
         }
       }
-    case GET_BLOCKS_PAGE + actions_suffix.START:
-      return {
-        ...state,
-        loading: true
-      }
     case GET_BLOCKS_PAGE + actions_suffix.SUCCESS:
-      // console.log(action.payload)
       return {
         ...state,
         loading: false,

@@ -7,15 +7,21 @@ import Pagination from '../containers/PaginationContainer';
 
 export default class BlocksIndexView extends React.Component {
   componentDidMount() {
-    const { getBlocksPage, match: { params: { page } } } = this.props;
-    getBlocksPage(page ? page : 1);
+    const { getBlocksPage, match: { params: { page } }, responsive } = this.props;
+    let pagination = 15;
+    if (responsive <= 800)
+      pagination = 5
+    getBlocksPage(page ? page : 1, pagination);
     changeDocumentTitle('WasakaChain', true)
   }
 
-  componentDidUpdate({ match: { params: { page } } }) {
+  componentDidUpdate({ match: { params: { page } }, responsive }) {
     if (this.props.match.params.page !== page) {
       const { getBlocksPage } = this.props;
-      getBlocksPage(this.props.match.params.page ? this.props.match.params.page : 1);
+      let pagination = 15;
+      if (this.props.responsive !== responsive && this.props.responsive <= 800)
+        pagination = 5
+      getBlocksPage(this.props.match.params.page ? this.props.match.params.page : 1, pagination);
     }
   }
 

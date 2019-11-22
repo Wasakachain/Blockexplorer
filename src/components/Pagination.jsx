@@ -34,12 +34,14 @@ export default class Pagination extends React.Component {
     return (
       <div className='pagination-container full-width flex-center wrap'>
         <p className={`button prev five-color four-background${this.current > 1 ? ' active' : ' disabled'}`} onClick={this.goFirst}>First</p>
-        <div className={`arrow four-background prev${this.current > 1 ? ' active' : ' disabled'}`} onClick={this.goBack}>
-          <Arrow className='prev' />
-        </div>
-        <p className='pages four-background five-color'>{`Page ${this.current} of ${this.last}`}</p>
-        <div className={`arrow four-background next${this.current < this.last ? ' active' : ' disabled'}`} onClick={this.goNext}>
-          <Arrow className='next' />
+        <div className='pages-and-arrows-container flex-center'>
+          <div className={`arrow four-background prev${this.current > 1 ? ' active' : ' disabled'}`} onClick={this.goBack}>
+            <Arrow className='prev' />
+          </div>
+          <p className='pages four-background five-color'>{`Page ${this.current} of ${this.last}`}</p>
+          <div className={`arrow four-background next${this.current < this.last ? ' active' : ' disabled'}`} onClick={this.goNext}>
+            <Arrow className='next' />
+          </div>
         </div>
         <p className={`button next four-background five-color${this.current < this.last ? ' active' : ' disabled'}`} onClick={this.goLast}>Last</p>
       </div>

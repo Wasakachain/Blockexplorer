@@ -4,7 +4,8 @@ import BlocksList from '../components/BlocksList';
 export default connect(
   (state) => {
     return {
-      data: state.blocksReducer.blocksList
+      data: state.blocksReducer.blocksList,
+      responsive: state.responsiveReducer.responsive
     }
   }
 )(BlocksList);

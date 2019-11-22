@@ -8,10 +8,12 @@ export default withRouter(
     (state) => {
       return {
         data: state.blocksReducer.blocksList,
-        loading: state.blocksReducer.loading
+        loading: state.blocksReducer.loading,
+        responsive: state.responsiveReducer.responsive
       }
-    }, {
-    getBlocksPage
-  }
+    },
+    {
+      getBlocksPage
+    }
   )(BlocksIndexView)
 )

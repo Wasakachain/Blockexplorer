@@ -51,7 +51,7 @@
     animation: pending-tx-clock 1s ease-in-out infinite;
 }
 
-.link {
+.transaction-view-wrapper .link {
     padding-top: 30px;
 }
 

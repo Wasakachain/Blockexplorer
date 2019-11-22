@@ -5,7 +5,8 @@ export default
   connect(
     state => {
       return {
-        data: state.blocksReducer.blocksList
+        data: state.blocksReducer.blocksList,
+        loading: state.blocksReducer.loading,
       }
     },
   )(BlockExplorerHomePanel);

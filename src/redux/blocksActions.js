@@ -12,7 +12,7 @@ export const getBlocksIndex = () => {
     type: GET_BLOCKS,
     payload: new Ajax('blocks', {
       params: {
-        paginate: 21
+        paginate: 15
       }
     }).result()
   }
@@ -38,12 +38,12 @@ export const cleanReducerMessage = () => {
   }
 }
 
-export const getBlocksPage = (pageNumber) => {
+export const getBlocksPage = (pageNumber, paginate = 15) => {
   return {
     type: GET_BLOCKS_PAGE,
     payload: new Ajax('blocks', {
       params: {
-        paginate: 15,
+        paginate: paginate,
         current_page: pageNumber
       }
     }).result()

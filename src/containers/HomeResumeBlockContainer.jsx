@@ -9,7 +9,8 @@ export default withRouter(
     (state, { reducer, reducerKey }) => {
       return {
         data: state[reducer][reducerKey],
-        objectIndentificator: reducer === 'blocksReducer' ? state[reducer].pagination.last : state[reducer].lastTransactionHash
+        objectIdentificator: reducer === 'blocksReducer' ? parseInt(state[reducer].pagination.total) - 1 : state[reducer].lastTransactionHash,
+        loading: state[reducer].loading
       }
     },
     {

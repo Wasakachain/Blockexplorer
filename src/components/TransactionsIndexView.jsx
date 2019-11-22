@@ -7,15 +7,21 @@ import Pagination from '../containers/PaginationContainer';
 
 export default class TransactionsIndexView extends React.Component {
   componentDidMount() {
-    const { pendingdTransactions, getTransactionsPage, match: { params: { page } } } = this.props;
+    const { pendingdTransactions, getTransactionsPage, match: { params: { page } }, responsive } = this.props;
+    let pagination = 15;
+    if (responsive <= 800)
+      pagination = 5;
+    getTransactionsPage(pendingdTransactions ? 'pending' : 'confirmed', page ? page : 1, pagination);
     changeDocumentTitle(pendingdTransactions ? 'Pending Transactions' : 'Confirmed Transactions', true);
-    getTransactionsPage(pendingdTransactions ? 'pending' : 'confirmed', page ? page : 1);
   }
 
-  componentDidUpdate({ match: { params: { page } } }) {
+  componentDidUpdate({ match: { params: { page } }, responsive }) {
     if (this.props.match.params.page !== page) {
+      let pagination = 15;
+      if (this.props.responsive !== responsive && this.props.responsive <= 800)
+        pagination = 5
       const { pendingdTransactions, getTransactionsPage } = this.props;
-      getTransactionsPage(pendingdTransactions ? 'pending' : 'confirmed', this.props.match.params.page ? this.props.match.params.page : 1);
+      getTransactionsPage(pendingdTransactions ? 'pending' : 'confirmed', this.props.match.params.page ? this.props.match.params.page : 1, pagination);
     }
   }
 

@@ -235,6 +235,9 @@
     }
     
     @media (max-width: 600px) {
+        .home-input-search-box-container .search-box-input::placeholder {
+            font-size: .7em;
+        }
         .home-view-wrapper .blocks-container .single-block-container {
             width: 100%;
         }
