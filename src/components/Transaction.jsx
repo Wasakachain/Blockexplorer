@@ -24,7 +24,7 @@ export default class Transaction extends React.Component {
     let success = typeof data.minedInBlockIndex === 'number' ? true : false;
     return (
       <span className='property-value full-width flex'>
-        <img src={success ? checkMark : pending} className='transaction-status-image' />
+        <img src={success ? checkMark : pending} className={'transaction-status-image' + (!data.minedInBlockIndex ? ' pending-image' : '')}  />
         <p className={`transaction-status${success ? ' main-color' : ' five-color'}`}>{success ? 'Success' : 'Pending'}</p>
       </span>
     )
