@@ -22,8 +22,7 @@
     font-size: 1.3em;
 }
 
-.error-message-container p,
-.transaction-property-container .label {
+.error-message-container p, .transaction-property-container .label {
     font-family: Yantramanav-Light;
 }
 
@@ -43,6 +42,18 @@
 
 .transaction-property-container .property-value .transaction-status {
     padding-left: 10px;
+}
+
+.transaction-status.Pending {
+    color: var(--five-color);
+}
+
+.transaction-status.Success {
+    color: var(--main-color);
+}
+
+.transaction-status.Failed {
+    color: #bb2f2f;
 }
 
 .transaction-property-container .property-value .transaction-status-image {
