@@ -11,11 +11,11 @@ export function changeDocumentTitle(title, isHome = false) {
     }
 }
 
-export function parseCoinAmount(total, unit = 'gar') {
+export function parseCoinAmount(total, unit = 'GAR') {
     let amount = 0;
-    if (total % 1000 === 0 && unit !== 'wasa') {
+    if (total % 1000 === 0 && unit !== 'WASA') {
         amount = total / 1000;
-        unit = unit === 'avo' ? 'wasa' : 'avo';
+        unit = unit === 'AVO' ? 'WASA' : 'AVO';
         return parseCoinAmount(amount, unit);
     } else {
         amount = total;
@@ -63,6 +63,7 @@ export function validateAddress(address) {
     else
         return false;
 }
+
 export function parseHash0x(hash) {
     return new RegExp("^0x", "i").test(hash) ? hash.replace('0x', '') : hash;
 }
