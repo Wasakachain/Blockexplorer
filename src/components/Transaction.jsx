@@ -4,7 +4,7 @@ import { fullTransactionProperties } from '../static_data/transactionData';
 import { formatTimeStamp, parseCoinAmount, parseHashToShow } from '../utils/functions';
 import checkMark from '../assets/icons/success.png';
 import pending from '../assets/icons/pending.png';
-import error from '../assets/icons/pending.png';
+import error from '../assets/icons/error.png';
 
 export default class Transaction extends React.Component {
   getTransactionPropertyValue(name, value) {
@@ -19,13 +19,25 @@ export default class Transaction extends React.Component {
       return parseHashToShow(value);
     return value;
   }
+
+  setIcon(status) {
+    if (status !== 'Pending') {
+      return status === 'Success' ? checkMark : error;
+    }
+    return pending
+  }
+
   getTransactionStatus() {
-    const { data } = this.props;
-    let success = typeof data.minedInBlockIndex === 'number' ? true : false;
+    const { data = {} } = this.props;
+    let status = 'Pending';
+    if (typeof data.minedInBlockIndex === 'number') {
+      status = data.transferSuccessful ? 'Success' : 'Failed';
+    }
+
     return (
       <span className='property-value full-width flex'>
-        <img src={success ? checkMark : pending} className={'transaction-status-image' + (!data.minedInBlockIndex ? ' pending-image' : '')}  />
-        <p className={`transaction-status${success ? ' main-color' : ' five-color'}`}>{success ? 'Success' : 'Pending'}</p>
+        <img src={this.setIcon(status)} className={'transaction-status-image' + (typeof data.minedInBlockIndex !== 'number' ? ' pending-image' : '')} />
+        <p className={`transaction-status ${status}`}>{status}</p>
       </span>
     )
   }
