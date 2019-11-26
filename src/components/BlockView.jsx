@@ -17,7 +17,7 @@ export default class BlockView extends React.Component {
   }
   validateAndSearchBlockIndex() {
     const { match: { params: { blockIndex } }, blocks, getBlockByIndex } = this.props;
-    if (!blocks[blockIndex]) {
+    if (!blocks.find(({ index }) => index == blockIndex)) {
       getBlockByIndex(blockIndex);
     }
   }
@@ -30,7 +30,7 @@ export default class BlockView extends React.Component {
           loading ? <Loader /> : (
             <div className='block-info-panel-container full-width'>
               {
-                message || !blocks[blockIndex] ? (
+                message || !blocks.find(({ index }) => index == blockIndex) ? (
                   <div className='error-message-container'>
                     <p className='full-width five-color'>{message ? message : 'Server Error'}</p>
                   </div>

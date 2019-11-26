@@ -2,9 +2,9 @@ import { connect } from 'react-redux';
 import Block from '../components/Block';
 
 export default connect(
-  (state, ownProps) => {
+  (state, { blockIndex }) => {
     return {
-      data: state.blocksReducer.blocksList[ownProps.blockIndex],
+      data: state.blocksReducer.blocksList.find(({ index }) => index == blockIndex)
     }
   }
 )(Block);

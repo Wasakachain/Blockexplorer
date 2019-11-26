@@ -26,6 +26,7 @@ export const getLastBlock = (index) => {
 }
 
 export const getBlockByIndex = (index) => {
+  console.log('action', index)
   return {
     type: NEW_BLOCK,
     payload: new Ajax(`blocks/${index}`, {}).result()

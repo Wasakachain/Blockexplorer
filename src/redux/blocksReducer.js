@@ -8,7 +8,7 @@ import {
 import { actions_suffix } from './store';
 
 const initialState = {
-  blocksList: {},
+  blocksList: [],
   pagination: {},
   lastBlock: {},
   loading: false,
@@ -69,16 +69,16 @@ function blocksReducer(state = initialState, action) {
       return {
         ...state,
         loading: false,
-        blocksList: {
+        blocksList: [
           ...state.blocksList,
-          [action.payload.index]: { ...action.payload }
-        }
+          { ...action.payload }
+        ]
       }
     case GET_BLOCKS_PAGE + actions_suffix.SUCCESS:
       return {
         ...state,
         loading: false,
-        blocksList: action.payload.blocks,
+        blocksList: [...action.payload.blocks],
         pagination: {
           current: action.payload.currentPage,
           last: action.payload.lastPage,
